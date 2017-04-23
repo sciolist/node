@@ -464,7 +464,7 @@ void FillStatsArray(double* fields, const uv_stat_t* s) {
   // Dates.
 #define X(idx, name)                                                          \
   fields[idx] = (static_cast<double>(s->st_##name.tv_sec) * 1000) +           \
-                (static_cast<double>(s->st_##name.tv_nsec / 1000000));        \
+                round(static_cast<double>(s->st_##name.tv_nsec) / 1000000);   \
 
   X(10, atim)
   X(11, mtim)
